@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Sentiment analyis" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://media.licdn.com/dms/image/D4D03AQF9SgUNqLOuuQ/profile-displayphoto-shrink_800_800/0/1673392074966?e=2147483647&v=beta&t=XNSWGRKs7CX00ramONVcUNtnIPrmbNNojZzAZIuJZcY"
+    />
+    <meta property="og:url" content="https:...." />
+    <title>YT sentimental analysis Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/normalize.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+
+      html {
+        /* 62.5% of 16px = 10px */
+        font-size: 62.5%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+
+      body {
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        font-size: 2.4rem;
+        color: var(--color-body);
+        /*background-color: #000;*/
+        line-height: 1.5;
+        overflow-x: hidden;
+        background-image: url("{{ url_for('static', filename='images/web.jpg') }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--color-headings);
+        margin-bottom: 1rem;
+        line-height: 1.1;
+      }
+
+      p {
+        margin-top: 0;
+      }
+      .home-heading {
+        color: #fff;
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        box-shadow: rgba(240, 46, 170, 0.4) 5px 5px,
+          rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px,
+          rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+      }
+      .home-container {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        height: 700px;
+      }
+      .para {
+        color: #fff;
+        font-family: Inter, Arial, Helvetica, sans-serif;
+      }
+      .para-group {
+        position: relative;
+        top: 10px;
+      }
+      .para-area {
+        background-color: #8b008b;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: -35px;
+        left: 270px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        width: 300px;
+        border-radius: 30px 0px 30px 0px;
+      }
+      @media screen and (max-width: 770px) {
+        .para-area {
+          position: relative;
+          left: 95px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="home-container">
+      <h1 class="home-heading">YouTube Sentiment Analysis Results</h1>
+      <div class="para-area">
+        <div class="para-group">
+          <p class="para">{{ positive }}% are positive</p>
+          <p class="para">{{ negative }}% are negative</p>
+          <p class="para">{{ neutral }}% are neutral</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
